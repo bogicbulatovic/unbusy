@@ -21,5 +21,17 @@
     "eslint": "8.10.0",
     "eslint-config-next": "12.1.0",
     "typescript": "4.6.2"
-  }
+  },
+  "browserslist": [
+    "Chrome >= 57",
+    "ChromeAndroid >= 57",
+    "Edge >= 16",
+    "Firefox >= 52",
+    "FirefoxAndroid >= 52",
+    "Opera >= 44",
+    "OperaMobile >= 43",
+    "Safari >= 10.1",
+    "IOS >= 10.3",
+    "Samsung  >= 6"
+  ]
 }
