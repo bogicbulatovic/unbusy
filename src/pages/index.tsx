@@ -1,6 +1,10 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { Some } from "../some";
 import styles from "../styles/Home.module.css";
+
+const s: Some = "";
+s;
 
 const Home: NextPage = () => {
   return (
