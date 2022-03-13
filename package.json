@@ -8,7 +8,8 @@
     "build-export": "next build && next export",
     "start": "next start",
     "lint": "next lint",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "prepare": "husky install"
   },
   "dependencies": {
     "next": "12.1.0",
@@ -25,6 +26,8 @@
     "colornames": "^1.1.1",
     "eslint": "8.10.0",
     "eslint-config-next": "12.1.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.5",
     "polished": "^4.1.4",
     "typescript": "4.6.2"
   },
