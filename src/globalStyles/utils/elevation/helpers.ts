@@ -1,7 +1,11 @@
+import { styleVariants } from "@vanilla-extract/css";
 import { enforceRange } from "../../../shared/enforceRange";
 import { changeColorAlpha } from "../color/changeColor";
 import { nameToHex } from "../color/nameToHex";
-import { ElevationZValue } from "./types";
+import {
+  CreateElevationColorVariants,
+  ElevationZValue
+} from "./types";
 import {
   elevationColorMap,
   penumbraMap,
@@ -39,4 +43,25 @@ const elevationShadow = (
     ${pneumbraZValue} ${pneumbraColor}`;
 };
 
-export { elevationShadow, elevationColor };
+const createElevationColorVariants: CreateElevationColorVariants = ({
+  surfaceColorVal,
+  elevationColorVal
+}) => {
+  const variants = styleVariants(elevationColorMap, (_, z) => {
+    const overlayColor = elevationColor(z, elevationColorVal);
+
+    const overlay = `linear-gradient(0deg, ${overlayColor}, ${overlayColor})`;
+
+    return {
+      background: `${overlay}, ${surfaceColorVal}`
+    };
+  });
+
+  return variants;
+};
+
+export {
+  elevationShadow,
+  elevationColor,
+  createElevationColorVariants
+};
