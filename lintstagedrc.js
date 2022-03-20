@@ -5,7 +5,7 @@ const buildEslintCommand = filenames =>
     .map(f => path.relative(process.cwd(), f))
     .join(" ")}`;
 
-const buildTypeCheckCommand = () => "npm run type-check";
+const buildTypeCheckCommand = () => "tsc --noEmit --incremental";
 
 module.exports = {
   "*.{js,jsx,ts,tsx}": buildEslintCommand,
