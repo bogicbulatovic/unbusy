@@ -21,11 +21,6 @@ globalStyle("body", {
   lineHeight: "1.5"
 });
 
-globalStyle("#___gatsby,#gatsby-focus-wrapper,body", {
-  overflow: "inherit",
-  width: "100%"
-});
-
 globalStyle("img", { display: "block", border: "none" });
 
 globalStyle(`[tabindex="-1"]`, { outline: "none" });
