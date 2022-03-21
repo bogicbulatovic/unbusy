@@ -1,4 +1,4 @@
-import "../globalStyles/base/base.css";
+import "../globalStyles/base.css";
 import type { AppProps as Props } from "next/app";
 
 const MyApp: React.FC<Props> = ({ Component, pageProps }) => {
