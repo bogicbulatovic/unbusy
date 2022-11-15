@@ -4,12 +4,10 @@ import { fontFamily } from "./variables";
 globalStyle("*,*::before,*::after", { boxSizing: "border-box" });
 
 globalStyle("html", {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  "-webkit-font-smoothing": "antialiased",
-  "-moz-osx-font-smoothing": "grayscale",
-  "font-size": "100%",
-  "-webkit-tap-highlight-color": "transparent",
+  WebkitFontSmoothing: "antialiased",
+  MozOsxFontSmoothing: "grayscale",
+  fontSize: "100%",
+  WebkitTapHighlightColor: "transparent",
   overflowX: "hidden",
   width: "100%"
 });
