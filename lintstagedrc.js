@@ -17,11 +17,11 @@ const removeIgnoredFiles = async files => {
 const buildEslintCommand = async filenames => {
   const filesToLint = await removeIgnoredFiles(filenames);
 
-  return `eslint --max-warnings=0 ${filesToLint
+  return `npm run lint ${filesToLint
     .map(f => path.relative(process.cwd(), f))
     .join(" ")}`;
 };
-const buildTypeCheckCommand = () => "tsc --noEmit --incremental";
+const buildTypeCheckCommand = () => "npm run type-check-incremental";
 
 module.exports = {
   "*.{js,jsx,ts,tsx}": buildEslintCommand,
