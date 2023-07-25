@@ -1,0 +1,29 @@
+import { BreakpointsMap, Breakpoints } from "./types";
+
+const breakpointsMap: BreakpointsMap = {
+  xs: 0,
+  sm: 576,
+  md: 768,
+  lg: 992,
+  xl: 1200,
+  xxl: 1400
+};
+
+const breakpointsOrdered: Breakpoints[] = Object.entries(
+  breakpointsMap
+)
+  .sort((a, b) => {
+    const aSize = a[1];
+    const bSize = b[1];
+    if (aSize > bSize) {
+      return 1;
+    }
+    if (aSize < bSize) {
+      return -1;
+    }
+
+    return 0;
+  })
+  .map(([key]) => key as Breakpoints);
+
+export { breakpointsMap, breakpointsOrdered };
