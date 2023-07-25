@@ -5,7 +5,7 @@ const MyApp: React.FC<Props> = ({ Component, pageProps }) => {
   return (
     <>
       <GlobalStyles />
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </>
   );
 };
