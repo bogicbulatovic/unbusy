@@ -1,20 +1,14 @@
 // create a single file containing array of data from all files
 
-import {
-  readFileSync,
-  readdirSync,
-  createWriteStream
-} from "node:fs";
-
-const dirPath = "./src/data/bus-lines-json/";
-const files = readdirSync(dirPath);
+import { readFileSync, createWriteStream } from "node:fs";
+import { dirPath, forEachBusLineFile } from "./utils.mjs";
 
 const allFilename = "all.json";
 const writeStream = createWriteStream(dirPath + allFilename);
 
 writeStream.write("[");
 
-files.forEach((filename, i) => {
+forEachBusLineFile((filename, i, files) => {
   if (filename === allFilename) {
     return;
   }

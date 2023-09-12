@@ -1,7 +1,8 @@
 // normalize data by swaping lattitude with longitude for use in leaflet
 // [42.43894178 , 19.2708081] becomes [19.2708081,42.43894178]
 
-import { readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
+import { forEachBusLineFile, dirPath } from "./utils.mjs";
 
 const normalizeArr = arr => {
   if (
@@ -31,14 +32,11 @@ const forEachArr = (obj, cb) => {
   }
 };
 
-const dirPath = "./src/data/bus-lines-json/";
-const files = readdirSync(dirPath);
-
-for (const filename of files) {
+forEachBusLineFile(filename => {
   const file = readFileSync(dirPath + filename);
   const obj = JSON.parse(file);
 
   forEachArr(obj, normalizeArr);
 
   writeFileSync(dirPath + filename, JSON.stringify(obj));
-}
+});
