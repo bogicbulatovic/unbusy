@@ -12,14 +12,20 @@ const globalStyles = globalCss({
     fontSize: "100%",
     "-webkit-tap-highlight-color": "transparent",
     overflowX: "hidden",
-    width: "100%"
+    width: "100%",
+    //
+    height: "100%"
   },
 
   body: {
     margin: 0,
     padding: 0,
     fontFamily,
-    lineHeight: "1.5"
+    lineHeight: "1.5",
+    height: "inherit"
+  },
+  "#__next": {
+    height: "inherit"
   },
 
   img: {
