@@ -2,6 +2,7 @@ import React from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import * as s from "./styles";
 import { PodgoricaLatLng, zoom } from "./helpers";
+import { MapContent } from "../MapContent/MapContent";
 
 const Map: React.FC = () => {
   if (typeof window === "undefined") {
@@ -18,6 +19,7 @@ const Map: React.FC = () => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
+      <MapContent />
     </MapContainer>
   );
 };
