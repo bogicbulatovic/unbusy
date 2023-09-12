@@ -1,3 +1,6 @@
+// normalize data by swaping lattitude with longitude for use in leaflet
+// [42.43894178 , 19.2708081] becomes [19.2708081,42.43894178]
+
 import { readFileSync, readdirSync, writeFileSync } from "node:fs";
 
 const normalizeArr = arr => {
