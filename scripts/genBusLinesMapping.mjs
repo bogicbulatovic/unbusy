@@ -15,6 +15,6 @@ forEachBusLineFile(filename => {
 });
 
 writeFileSync(
-  "./scripts/dist/busLinesMapping.json",
+  "./src/data/busLinesMapping.json",
   JSON.stringify(obj, null, 4)
 );
