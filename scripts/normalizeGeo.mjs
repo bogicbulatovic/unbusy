@@ -1,4 +1,4 @@
-// normalize data by swaping lattitude with longitude for use in leaflet
+// normalize data by swaping lattitude with longitude for use in GeoJSON
 // [42.43894178 , 19.2708081] becomes [19.2708081,42.43894178]
 
 import { readFileSync, writeFileSync } from "node:fs";
