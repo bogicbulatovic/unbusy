@@ -1,17 +1,25 @@
-import { rest } from "msw";
-import { Book } from "./types";
+import { RequestHandler, rest } from "msw";
+import {
+  BusLinesFeatureCollection,
+  BusLinesUrlParams
+} from "./types";
 
-const handlers = [
-  rest.get("/api/book", (_req, res, ctx) => {
-    return res(
-      ctx.json<Book>({
-        title: "Lord of the Rings",
-        imageUrl: "/book-cover.jpg",
-        description:
-          "The Lord of the Rings is an epic high-fantasy novel written by English author and scholar J. R. R. Tolkien."
-      })
-    );
-  })
-];
+import busLinesMapping from "../data/busLinesMapping.json";
+
+const busLines: RequestHandler = rest.get<
+  undefined,
+  BusLinesUrlParams,
+  BusLinesFeatureCollection
+>("/api/v1/bus-lines/:id", async (req, res, ctx) => {
+  const { id } = req.params;
+
+  const collection = await import(
+    `../data/bus-lines-json/${busLinesMapping[id]}.json`
+  );
+
+  return res(ctx.json(collection as BusLinesFeatureCollection));
+});
+
+const handlers = [busLines];
 
 export { handlers };
