@@ -1,7 +1,12 @@
 import React from "react";
+import { BusLinesControl } from "../BusLinesControl/BusLinesControl";
 
 const MapContent: React.FC = () => {
-  return <></>;
+  return (
+    <>
+      <BusLinesControl />
+    </>
+  );
 };
 
 export { MapContent };
