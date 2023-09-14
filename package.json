@@ -43,5 +43,8 @@
     "Safari >= 10.1",
     "IOS >= 10.3",
     "Samsung  >= 6"
-  ]
+  ],
+  "msw": {
+    "workerDirectory": "public"
+  }
 }
