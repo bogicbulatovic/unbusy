@@ -2,51 +2,78 @@ import React, { useState } from "react";
 import * as s from "./styles";
 import { stopPropagation } from "../../../../shared/stopPropagation";
 import { useMap } from "react-leaflet";
-import { busLines } from "../../../../data/bus-lines";
+import {
+  busLines,
+  busLinesReverseMapping
+} from "../../../../data/bus-lines";
+import { useBusLine } from "../../../../hooks/useBusLine/useBusLine";
+import { UseBusLineProps } from "../../../../hooks/useBusLine/props";
+import { GeoJSON } from "react-leaflet";
+import type { GeoJSON as GeoJSONType } from "geojson";
+import { hasMouse } from "../../../../shared/hasMouse";
 
 const BusLinesControl: React.FC = () => {
   const map = useMap();
 
-  const [value, setValue] = useState<string>();
+  const [lineId, setLineId] = useState<string>();
 
   const handleChange: React.ChangeEventHandler<
     HTMLSelectElement
   > = e => {
-    setValue(e.target.value);
+    setLineId(e.target.value);
   };
 
+  const { data: busLine } = useBusLine({
+    id: lineId as UseBusLineProps["id"]
+  });
+
   return (
-    <s.Root
-      onTouchStart={stopPropagation}
-      onTouchEnd={stopPropagation}
-      onTouchMove={stopPropagation}
-      onMouseEnter={e => {
-        e.stopPropagation();
-        map.scrollWheelZoom.disable();
-      }}
-      onMouseLeave={e => {
-        e.stopPropagation();
-        map.scrollWheelZoom.enable();
-      }}
-      onMouseMove={stopPropagation}
-    >
-      <s.Container>
-        <s.SelectLabel htmlFor="bus_line_select">
-          Autobuske linije
-        </s.SelectLabel>
-        <s.Select
-          id="bus_line_select"
-          value={value}
-          onChange={handleChange}
-        >
-          {busLines.map((line, i) => (
-            <option key={i} value={line}>
-              {line}
-            </option>
-          ))}
-        </s.Select>
-      </s.Container>
-    </s.Root>
+    <>
+      <s.Root
+        onTouchStart={stopPropagation}
+        onTouchStartCapture={stopPropagation}
+        onTouchEnd={stopPropagation}
+        onTouchEndCapture={stopPropagation}
+        onTouchMove={stopPropagation}
+        onTouchMoveCapture={stopPropagation}
+        onMouseEnter={e => {
+          e.stopPropagation();
+          hasMouse() && map.scrollWheelZoom.disable();
+        }}
+        onMouseOut={e => {
+          e.stopPropagation();
+          hasMouse() && map.scrollWheelZoom.enable();
+        }}
+        onMouseOutCapture={stopPropagation}
+        onMouseMove={stopPropagation}
+        onMouseMoveCapture={stopPropagation}
+        onWheel={stopPropagation}
+        onWheelCapture={stopPropagation}
+        onClick={stopPropagation}
+        onClickCapture={stopPropagation}
+      >
+        <s.Container>
+          <s.SelectLabel htmlFor="bus_line_select">
+            Autobuske linije
+          </s.SelectLabel>
+          <s.Select
+            id="bus_line_select"
+            value={lineId}
+            onChange={handleChange}
+          >
+            <option value={undefined}>Izaberi</option>
+            {busLines.map((line, i) => (
+              <option key={i} value={busLinesReverseMapping[line]}>
+                {line}
+              </option>
+            ))}
+          </s.Select>
+        </s.Container>
+      </s.Root>
+      {busLine && (
+        <GeoJSON key={lineId} data={busLine as GeoJSONType} />
+      )}
+    </>
   );
 };
 
