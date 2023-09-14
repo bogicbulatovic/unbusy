@@ -15,8 +15,6 @@ const BusLinesControl: React.FC = () => {
     setValue(e.target.value);
   };
 
-  console.log({ value });
-
   return (
     <s.Root
       onTouchStart={stopPropagation}
