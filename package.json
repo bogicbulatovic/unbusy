@@ -10,6 +10,9 @@
     "type-check": "tsc --noEmit",
     "type-check-incremental": "tsc --noEmit --incremental",
     "firebase": "firebase",
+    "bs": "npm run build && firebase emulators:start",
+    "firebase-serve": "firebase emulators:start",
+    "deploy-preview": "firebase hosting:channel:deploy",
     "prepare": "husky install"
   },
   "dependencies": {
