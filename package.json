@@ -10,6 +10,7 @@
     "lint": "eslint --max-warnings=0",
     "type-check": "tsc --noEmit",
     "type-check-incremental": "tsc --noEmit --incremental",
+    "firebase": "firebase",
     "prepare": "husky install"
   },
   "dependencies": {
