@@ -1,4 +1,4 @@
-export type ParseTypeResponse = {
+export type ParseTimeResponse = {
   hours: number;
   minutes: number;
   seconds: number;

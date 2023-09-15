@@ -1,4 +1,4 @@
-import { ParseTypeResponse as Response } from "./types";
+import { ParseTimeResponse as Response } from "./types";
 
 const parseTime = (time: string): Response => {
   const splitted = time.split(":");
