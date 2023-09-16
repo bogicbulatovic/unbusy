@@ -45,11 +45,10 @@ const BusLinesControl: React.FC = () => {
           e.stopPropagation();
           hasMouse() && map.scrollWheelZoom.disable();
         }}
-        onMouseOut={e => {
+        onMouseLeave={e => {
           e.stopPropagation();
           hasMouse() && map.scrollWheelZoom.enable();
         }}
-        onMouseOutCapture={stopPropagation}
         onMouseMove={stopPropagation}
         onMouseMoveCapture={stopPropagation}
         onWheel={stopPropagation}
