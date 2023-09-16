@@ -1,7 +1,7 @@
 import { Time } from "../types";
 
 const subtractTime = (time: Time, bySeconds: number): Time => {
-  let { hours, minutes, seconds } = time;
+  let { hours, minutes, seconds = 0 } = time;
 
   if (seconds >= bySeconds) {
     seconds = seconds - bySeconds;
@@ -26,7 +26,11 @@ const subtractTime = (time: Time, bySeconds: number): Time => {
     hours = 24 - Math.abs(hours);
   }
 
-  return { hours, minutes, seconds };
+  return {
+    hours,
+    minutes,
+    seconds: time.seconds === undefined ? undefined : seconds
+  };
 };
 
 export { subtractTime };

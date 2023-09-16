@@ -5,7 +5,7 @@ const parseTime = (time: string): Time => {
 
   let hours: string | number = splitted[0];
   let minutes: string | number = splitted[1];
-  let seconds: string | number = splitted[2];
+  let seconds: string | number | undefined = splitted[2];
 
   if (hours.charAt(0) === "0") {
     hours = hours.charAt(1);
@@ -19,11 +19,13 @@ const parseTime = (time: string): Time => {
 
   minutes = Number(minutes);
 
-  if (seconds.charAt(0) === "0") {
-    seconds = seconds.charAt(1);
-  }
+  if (seconds !== undefined) {
+    if (seconds.charAt(0) === "0") {
+      seconds = seconds.charAt(1);
+    }
 
-  seconds = Number(seconds);
+    seconds = Number(seconds);
+  }
 
   return { hours, minutes, seconds };
 };

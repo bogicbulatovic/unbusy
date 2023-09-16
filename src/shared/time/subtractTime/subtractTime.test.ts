@@ -113,3 +113,16 @@ test("hours in prev day", () => {
     seconds: time.seconds
   } as Time);
 });
+
+test("hours in prev day with no seconds", () => {
+  const time: Time = { hours: 0, minutes: 59 };
+
+  const subtractSeconds = 60 * 60;
+
+  const result = subtractTime(time, subtractSeconds);
+
+  expect(result).toEqual({
+    hours: 23,
+    minutes: time.minutes
+  } as Time);
+});

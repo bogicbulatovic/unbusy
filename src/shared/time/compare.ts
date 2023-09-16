@@ -24,11 +24,23 @@ const compare = (t1: Time, t2: Time): -1 | 0 | 1 => {
 
   // minutes are the same
 
-  if (t1.seconds < t2.seconds) {
+  if (t1.seconds === undefined && t2.seconds === undefined) {
+    return 0;
+  }
+  if (t1.seconds === undefined && t2.seconds !== undefined) {
     return -1;
   }
-  if (t1.seconds > t2.seconds) {
-    return -1;
+  if (t1.seconds !== undefined && t2.seconds === undefined) {
+    return 1;
+  }
+
+  if (t1.seconds !== undefined && t2.seconds !== undefined) {
+    if (t1.seconds < t2.seconds) {
+      return -1;
+    }
+    if (t1.seconds > t2.seconds) {
+      return -1;
+    }
   }
 
   return 0;
