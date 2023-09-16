@@ -27,10 +27,10 @@ export type BusLinesUrlParams = {
 
 // //
 
-// export type BusSchedule = {
-//   direction_name: string;
-//   first_departure_time: string;
-//   last_departure_time: string;
-//   day_type: "weekday";
-//   interval_in_minutes: number;
-// };
+export type BusSchedule = {
+  direction_name: string;
+  first_departure_time: string;
+  last_departure_time: string;
+  day_type: "weekday";
+  interval_in_minutes: number;
+};
