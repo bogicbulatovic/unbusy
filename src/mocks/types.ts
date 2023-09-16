@@ -1,5 +1,3 @@
-import busLinesMapping from "../data/busLinesMapping.json";
-
 export interface BusLinesFeatureCollection {
   type: string;
   features: Feature[];
@@ -24,5 +22,15 @@ interface Geometry {
 }
 
 export type BusLinesUrlParams = {
-  id: keyof typeof busLinesMapping;
+  id: string | `${number}`;
 };
+
+// //
+
+// export type BusSchedule = {
+//   direction_name: string;
+//   first_departure_time: string;
+//   last_departure_time: string;
+//   day_type: "weekday";
+//   interval_in_minutes: number;
+// };

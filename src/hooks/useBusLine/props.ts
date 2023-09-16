@@ -1,3 +1,3 @@
 import { FetchBusLineProps } from "../../api/fetchBusLine/types";
 
-export type UseBusLineProps = FetchBusLineProps;
+export type UseBusLineProps = Partial<Pick<FetchBusLineProps, "id">>;

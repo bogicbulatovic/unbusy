@@ -2,6 +2,7 @@ import { RequestHandler, rest } from "msw";
 import {
   BusLinesFeatureCollection,
   BusLinesUrlParams
+  // BusSchedule
 } from "./types";
 
 import busLinesMapping from "../data/busLinesMapping.json";
@@ -14,11 +15,33 @@ const busLines: RequestHandler = rest.get<
   const { id } = req.params;
 
   const collection = await import(
-    `../data/bus-lines-json/${busLinesMapping[id]}.json`
+    `../data/bus-lines-json/${
+      busLinesMapping[id as keyof typeof busLinesMapping]
+    }.json`
   );
 
   return res(ctx.json(collection as BusLinesFeatureCollection));
 });
+
+// const busSchedule = rest.get<
+//   undefined,
+//   BusLinesUrlParams,
+//   BusSchedule
+// >("/api/v1/bus-lines/:id/schedule", (req, res, ctx) => {
+//   const { id } = req.params;
+
+//   console.log({ busScheduleLineId: id });
+
+//   return res(
+//     ctx.json({
+//       direction_name: "Stari Aerodrom",
+//       first_departure_time: "05:15:00",
+//       last_departure_time: "21:55:00",
+//       day_type: "weekday",
+//       interval_in_minutes: 40
+//     })
+//   );
+// });
 
 const handlers = [busLines];
 

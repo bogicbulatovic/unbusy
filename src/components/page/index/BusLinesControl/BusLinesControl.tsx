@@ -7,7 +7,6 @@ import {
   busLinesReverseMapping
 } from "../../../../data/bus-lines";
 import { useBusLine } from "../../../../hooks/useBusLine/useBusLine";
-import { UseBusLineProps } from "../../../../hooks/useBusLine/props";
 import { GeoJSON } from "react-leaflet";
 import type { GeoJSON as GeoJSONType } from "geojson";
 import { hasMouse } from "../../../../shared/hasMouse";
@@ -24,7 +23,7 @@ const BusLinesControl: React.FC = () => {
   };
 
   const { data: busLine } = useBusLine({
-    id: lineId as UseBusLineProps["id"]
+    id: lineId
   });
 
   return (
