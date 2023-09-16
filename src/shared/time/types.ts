@@ -3,5 +3,3 @@ export type Time = {
   minutes: number;
   seconds: number;
 };
-
-export type ParseTimeResponse = Time;

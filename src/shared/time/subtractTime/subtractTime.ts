@@ -1,7 +1,6 @@
-import { Time } from "../parseTime/types";
-import { SubtractTimeResponse as Response } from "./types";
+import { Time } from "../types";
 
-const subtractTime = (time: Time, bySeconds: number): Response => {
+const subtractTime = (time: Time, bySeconds: number): Time => {
   let { hours, minutes, seconds } = time;
 
   if (seconds >= bySeconds) {

@@ -1,7 +1,7 @@
 import { test, expect } from "@jest/globals";
 
 import { subtractTime } from "./subtractTime";
-import { Time } from "../parseTime/types";
+import { Time } from "../types";
 
 test("current minute", () => {
   const time: Time = { hours: 23, minutes: 59, seconds: 15 };

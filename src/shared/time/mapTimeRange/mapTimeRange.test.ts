@@ -1,6 +1,6 @@
 import { test, expect, describe, jest } from "@jest/globals";
 import { forEachTimeInRange } from "./mapTimeRange";
-import { Time } from "../parseTime/types";
+import { Time } from "../types";
 
 describe("forEach", () => {
   test("loops correct number of times", () => {

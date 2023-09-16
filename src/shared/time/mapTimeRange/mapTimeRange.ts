@@ -1,5 +1,5 @@
-import { Time } from "../parseTime/types";
 import { subtractTime } from "../subtractTime/subtractTime";
+import { Time } from "../types";
 
 /** compare times,also designed to be used as callback to Array.prototype.sort
  * @returns -1 if t1 comes before t2, 1 if t1 comes after t2, 0 if t1 and t2 are the same times
