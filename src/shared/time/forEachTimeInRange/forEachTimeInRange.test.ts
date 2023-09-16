@@ -15,3 +15,15 @@ test("loops correct number of times", () => {
 
   expect(cb).toBeCalledTimes(minutesInDay / stepMins);
 });
+
+test("loops ones when min is equal to max", () => {
+  const min: Time = { hours: 0, minutes: 0, seconds: 0 };
+  const max: Time = { hours: 0, minutes: 0, seconds: 0 };
+  const stepMins = 30;
+
+  const cb = jest.fn();
+
+  forEachTimeInRange(min, max, stepMins, cb);
+
+  expect(cb).toBeCalledTimes(1);
+});

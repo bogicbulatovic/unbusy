@@ -12,7 +12,11 @@ const forEachTimeInRange = (
 ): void => {
   let curr = max;
 
-  for (let i = 0; compare(min, curr) === -1; i++) {
+  for (
+    let i = 0;
+    compare(min, curr) === -1 || compare(min, curr) === 0;
+    i++
+  ) {
     cb(curr, i);
 
     if (stepMins > minutesInTime(curr)) {
