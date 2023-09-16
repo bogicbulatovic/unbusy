@@ -3,11 +3,13 @@ import { UseBusLineProps as Props } from "./props";
 import { fetchBusLIne } from "../../api/fetchBusLine/fetchBusLIne";
 
 const useBusLine = ({ id }: Props) => {
+  const enabled = typeof id === "string" && !!id;
+
   return useQuery(
     "bus_line_" + id,
-    () => (id !== undefined ? fetchBusLIne({ id }) : undefined),
+    () => (enabled ? fetchBusLIne({ id }) : undefined),
     {
-      enabled: typeof id !== undefined
+      enabled
     }
   );
 };

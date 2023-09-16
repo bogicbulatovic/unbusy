@@ -14,7 +14,7 @@ import { hasMouse } from "../../../../shared/hasMouse";
 const BusLinesControl: React.FC = () => {
   const map = useMap();
 
-  const [lineId, setLineId] = useState<string>();
+  const [lineId, setLineId] = useState<string>("");
 
   const handleChange: React.ChangeEventHandler<
     HTMLSelectElement
@@ -60,7 +60,7 @@ const BusLinesControl: React.FC = () => {
             value={lineId}
             onChange={handleChange}
           >
-            <option value={undefined}>Izaberi</option>
+            <option value="">Izaberi</option>
             {busLines.map((line, i) => (
               <option key={i} value={busLinesReverseMapping[line]}>
                 {line}

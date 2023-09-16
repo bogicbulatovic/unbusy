@@ -3,10 +3,12 @@ import { BusLinesUrlParams } from "../../mocks/types";
 import { fetchBusSchedule } from "../../api/fetchBusSchedule/fetchBusSchedule";
 
 const useBusSchedule = ({ id }: Partial<BusLinesUrlParams>) => {
+  const enabled = typeof id === "string" && !!id;
+
   return useQuery(
     "bus_schedule_" + id,
-    () => (id !== undefined ? fetchBusSchedule({ id }) : undefined),
-    { enabled: id !== undefined }
+    () => (enabled ? fetchBusSchedule({ id }) : undefined),
+    { enabled }
   );
 };
 
