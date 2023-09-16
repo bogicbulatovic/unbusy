@@ -1,5 +1,5 @@
-import { forEachTimeInRange } from "../forEachTimeInRange/forEachTimeInRange";
-import { Time } from "../types";
+import { forEachTimeInRange } from "./forEachTimeInRange/forEachTimeInRange";
+import { Time } from "./types";
 
 const mapTimeRange = <T>(
   min: Time,

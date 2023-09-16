@@ -1,4 +1,4 @@
-import { Time } from "../types";
+import { Time } from "./types";
 
 const parseTime = (time: string): Time => {
   const splitted = time.split(":");
