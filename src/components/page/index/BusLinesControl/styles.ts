@@ -9,7 +9,9 @@ const Root = styled("div", {
   pointerEvents: "auto",
   border: "2px solid rgba(0,0,0,0.2)",
   backgroundColor: "white",
-  maxWidth: "60%"
+  maxWidth: "60%",
+  maxHeight: "30%",
+  overflowY: "auto"
 });
 
 const Container = styled("div", {

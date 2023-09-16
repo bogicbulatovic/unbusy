@@ -10,6 +10,10 @@ import { useBusLine } from "../../../../hooks/useBusLine/useBusLine";
 import { GeoJSON } from "react-leaflet";
 import type { GeoJSON as GeoJSONType } from "geojson";
 import { hasMouse } from "../../../../shared/hasMouse";
+import { useBusSchedule } from "../../../../hooks/useBusSchedule/useBusSchedule";
+import { mapTimeRange } from "../../../../shared/time/mapTimeRange";
+import { parseTime } from "../../../../shared/time/parseTime";
+import { stringifyTime } from "../../../../shared/time/stringifyTime";
 
 const BusLinesControl: React.FC = () => {
   const map = useMap();
@@ -25,6 +29,8 @@ const BusLinesControl: React.FC = () => {
   const { data: busLine } = useBusLine({
     id: lineId
   });
+
+  const { data: busSchedule } = useBusSchedule({ id: lineId });
 
   return (
     <>
@@ -67,6 +73,21 @@ const BusLinesControl: React.FC = () => {
               </option>
             ))}
           </s.Select>
+          {busSchedule && (
+            <>
+              <p>Red vožnje:</p>
+              <div style={{ display: "grid", gap: 5 }}>
+                <p>
+                  {mapTimeRange(
+                    parseTime(busSchedule.first_departure_time),
+                    parseTime(busSchedule.last_departure_time),
+                    busSchedule.interval_in_minutes,
+                    (t, i) => <p key={i}>{stringifyTime(t)}</p>
+                  ).reverse()}
+                </p>
+              </div>
+            </>
+          )}
         </s.Container>
       </s.Root>
       {busLine && (
