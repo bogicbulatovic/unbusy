@@ -11,8 +11,10 @@
     "type-check-incremental": "tsc --noEmit --incremental",
     "firebase": "firebase",
     "bs": "npm run build && firebase emulators:start",
+    "bd": "npm run build && npm run deploy",
     "firebase-serve": "firebase emulators:start",
     "deploy-preview": "firebase hosting:channel:deploy",
+    "deploy": "firebase deploy",
     "test": "jest",
     "debug-test": "node --inspect-brk node_modules/.bin/jest --runInBand",
     "prepare": "husky install"
