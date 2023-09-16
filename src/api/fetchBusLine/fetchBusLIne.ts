@@ -6,7 +6,7 @@ import {
 } from "./types";
 
 const fetchBusLIne = async ({ id }: Props): Promise<Response> => {
-  const response = await _fetch(apiPaths.busLines + id);
+  const response = await _fetch(apiPaths.busLines({ id }));
 
   const data = await response.json();
 
