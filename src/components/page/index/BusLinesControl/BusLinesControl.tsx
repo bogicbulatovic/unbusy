@@ -81,7 +81,7 @@ const BusLinesControl: React.FC = () => {
                     parseTime(busSchedule.first_departure_time),
                     parseTime(busSchedule.last_departure_time),
                     busSchedule.interval_in_minutes,
-                    (t, i) => <p key={i}>{stringifyTime(t)}</p>
+                    (t, i) => <div key={i}>{stringifyTime(t)}</div>
                   ).reverse()}
                 </p>
               </div>
