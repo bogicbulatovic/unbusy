@@ -1,13 +1,18 @@
-export interface BusLinesFeatureCollection {
-  type: string;
-  features: Feature[];
-}
+import type { GeoJSON } from "geojson";
 
-interface Feature {
-  type: string;
-  properties: Properties;
-  geometry: Geometry;
-}
+type Position = [number, number];
+
+type LineString = {
+  type: GeoJSON.LineString["type"];
+  coordinates: Position[];
+};
+
+type Point = {
+  type: GeoJSON.Point["type"];
+  coordinates: Position;
+};
+
+type Geometry = LineString | Point;
 
 interface Properties {
   name: string;
@@ -15,10 +20,15 @@ interface Properties {
   id: number;
   line_id?: number;
 }
+interface Feature {
+  type: GeoJSON.Feature["type"];
+  properties: Properties;
+  geometry: Geometry;
+}
 
-interface Geometry {
-  type: string;
-  coordinates: [number, number][];
+export interface BusLinesFeatureCollection {
+  type: GeoJSON.FeatureCollection["type"];
+  features: Feature[];
 }
 
 export type BusLinesUrlParams = {
