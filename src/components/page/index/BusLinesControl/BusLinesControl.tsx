@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import * as s from "./styles";
 import { stopPropagation } from "../../../../shared/stopPropagation";
-import { useMap } from "react-leaflet";
+import { Marker, Polyline, useMap } from "react-leaflet";
 import {
   busLines,
   busLinesReverseMapping
 } from "../../../../data/bus-lines";
 import { useBusLine } from "../../../../hooks/useBusLine/useBusLine";
-import { GeoJSON } from "react-leaflet";
-import type { GeoJSON as GeoJSONType } from "geojson";
 import { hasMouse } from "../../../../shared/hasMouse";
 import { useBusSchedule } from "../../../../hooks/useBusSchedule/useBusSchedule";
 import { mapTimeRange } from "../../../../shared/time/mapTimeRange";
@@ -89,9 +87,17 @@ const BusLinesControl: React.FC = () => {
           )}
         </s.Container>
       </s.Root>
-      {busLine && (
-        <GeoJSON key={lineId} data={busLine as GeoJSONType} />
-      )}
+      {busLine &&
+        busLine.features.map((f, i) => (
+          <React.Fragment key={i}>
+            {f.geometry.type === "Point" && (
+              <Marker position={f.geometry.coordinates} />
+            )}
+            {f.geometry.type === "LineString" && (
+              <Polyline positions={f.geometry.coordinates} />
+            )}
+          </React.Fragment>
+        ))}
     </>
   );
 };
