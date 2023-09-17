@@ -4,18 +4,44 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { forEachBusLineFile, dirPath } from "./utils.mjs";
 
+const latLng = "lat,lng";
+const lngLat = "lng,lat";
+
+const formats = [latLng, lngLat];
+
+const format = process.argv[2];
+
+if (!format) {
+  throw new Error("argument reqired: " + formats.join(" or "));
+}
+
+if (!formats.includes(format)) {
+  throw new Error(`Suported formats are: ${formats.join(" or ")}`);
+}
+
 const normalizeArr = arr => {
   if (
     arr.length === 2 &&
     typeof arr[0] === "number" &&
     typeof arr[1] === "number"
   ) {
-    const arr0 = arr[0];
-    const arr1 = arr[1];
-    if (arr0 > arr1) {
-      console.log("swapping", arr);
-      arr[0] = arr1;
-      arr[1] = arr0;
+    const position0 = arr[0];
+    const position1 = arr[1];
+
+    if (format === latLng) {
+      if (position0 < position1) {
+        console.log("swapping", arr);
+        arr[0] = position1;
+        arr[1] = position0;
+      }
+    }
+
+    if (format === lngLat) {
+      if (position0 > position1) {
+        console.log("swapping", arr);
+        arr[0] = position1;
+        arr[1] = position0;
+      }
     }
   }
 };
