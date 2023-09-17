@@ -1,10 +1,10 @@
 import React from "react";
-import { BusLinesControl } from "../BusLinesControl/BusLinesControl";
+import { BusLines } from "../BusLines/BusLines";
 
 const MapContent: React.FC = () => {
   return (
     <>
-      <BusLinesControl />
+      <BusLines />
     </>
   );
 };
