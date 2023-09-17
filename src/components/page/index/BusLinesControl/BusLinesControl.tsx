@@ -76,14 +76,14 @@ const BusLinesControl: React.FC = () => {
             <>
               <p>Red vožnje:</p>
               <div style={{ display: "grid", gap: 5 }}>
-                <p>
+                <div>
                   {mapTimeRange(
                     parseTime(busSchedule.first_departure_time),
                     parseTime(busSchedule.last_departure_time),
                     busSchedule.interval_in_minutes,
-                    (t, i) => <div key={i}>{stringifyTime(t)}</div>
+                    (t, i) => <p key={i}>{stringifyTime(t)}</p>
                   ).reverse()}
-                </p>
+                </div>
               </div>
             </>
           )}
