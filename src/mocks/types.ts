@@ -50,3 +50,17 @@ export type BusSchedule = {
   day_type: "weekday";
   interval_in_minutes: number;
 };
+
+//
+
+type ById = Record<
+  string,
+  {
+    coordinates: Position;
+    name: string;
+    id: number;
+    busLineIds: string[];
+  }
+>;
+
+export type BusStops = { byId: ById; allIds: number[] };
