@@ -1,10 +1,17 @@
 import React from "react";
-import { BusLines } from "../BusLines/BusLines";
+
+import b from "../../../../data/busStops.json";
+const busStops = b as unknown as BusStops;
+
+import { Marker } from "react-leaflet";
+import { BusStops } from "../../../../mocks/types";
 
 const MapContent: React.FC = () => {
   return (
     <>
-      <BusLines />
+      {busStops.allIds.map(id => (
+        <Marker key={id} position={busStops.byId[id].coordinates} />
+      ))}
     </>
   );
 };
