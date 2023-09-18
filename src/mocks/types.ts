@@ -1,5 +1,11 @@
 import type { GeoJSON } from "geojson";
 
+type CommonProperties = { name: string; id: number };
+type BusLineProperties = { type: "bus-line" } & CommonProperties;
+type BusStopProperties = { type: "bus-stop" } & CommonProperties & {
+    line_id: number;
+  };
+
 type Position = [number, number];
 
 type LineString = {
@@ -12,19 +18,19 @@ type Point = {
   coordinates: Position;
 };
 
-type Geometry = LineString | Point;
-
-interface Properties {
-  name: string;
-  type: string;
-  id: number;
-  line_id?: number;
-}
-interface Feature {
+type BusLineFeature = {
   type: GeoJSON.Feature["type"];
-  properties: Properties;
-  geometry: Geometry;
-}
+  properties: BusLineProperties;
+  geometry: LineString;
+};
+
+type BusStopFeature = {
+  type: GeoJSON.Feature["type"];
+  properties: BusStopProperties;
+  geometry: Point;
+};
+
+type Feature = BusLineFeature | BusStopFeature;
 
 export interface BusLinesFeatureCollection {
   type: GeoJSON.FeatureCollection["type"];
