@@ -11,13 +11,12 @@ import { mapTimeRange } from "../../../../shared/time/mapTimeRange";
 import { parseTime } from "../../../../shared/time/parseTime";
 import { stringifyTime } from "../../../../shared/time/stringifyTime";
 import { BusLinesControlProps as Props } from "./props";
+import { useBusSchedule } from "../../../../hooks/useBusSchedule/useBusSchedule";
 
-const BusLinesControl: React.FC<Props> = ({
-  value,
-  schedule,
-  onChange
-}) => {
+const BusLinesControl: React.FC<Props> = ({ value, onChange }) => {
   const map = useMap();
+
+  const { data: schedule } = useBusSchedule({ id: value });
 
   return (
     <s.Root
@@ -49,7 +48,7 @@ const BusLinesControl: React.FC<Props> = ({
         <s.Select
           id="bus_line_select"
           value={value}
-          onChange={onChange}
+          onChange={e => onChange(e.target.value)}
         >
           <option value="">Izaberi</option>
           {busLines.map((line, i) => (
