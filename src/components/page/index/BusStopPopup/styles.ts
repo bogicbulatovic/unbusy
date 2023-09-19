@@ -23,6 +23,7 @@ const LineToggleButton = styled(ButtonBase, {
   color: "#5e6137",
   letterSpacing: toRem(0.5),
   borderRadius: 4,
+  whiteSpace: "nowrap",
   variants: {
     active: {
       true: {

@@ -1,11 +1,11 @@
 {
-    "101": "Masline - Zabjelo",
-    "104": "Konik - Blok VI",
-    "106": "Donja Gorica - Rogami",
-    "108": "Zabjelo - Zlatica",
-    "112": "Željeznička stanica - Stara zlatica",
-    "113": "Stari aerodrom - Blok 6",
-    "115": "Zabjelo - Zagorič",
-    "117": "Masline (Doljani) - Zabjelo",
-    "119": "Podgorica - Veruša"
+    "L-20": "Donja Gorica - Rogami",
+    "L-19": "Konik - Blok VI",
+    "L-10": "Masline (Doljani) - Zabjelo",
+    "L-1": "Masline - Zabjelo",
+    "L-13": "Podgorica - Veruša",
+    "L-7": "Stari aerodrom - Blok 6",
+    "L-9": "Zabjelo - Zagorič",
+    "L-21": "Zabjelo - Zlatica",
+    "L-6A": "Željeznička stanica - Stara zlatica"
 }

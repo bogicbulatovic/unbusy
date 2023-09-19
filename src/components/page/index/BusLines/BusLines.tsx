@@ -5,7 +5,7 @@ import { BusLinesProps as Props } from "./props";
 
 const BusLines: React.FC<Props> = ({ lineId }) => {
   const { data: busLine } = useBusLine({
-    id: lineId + ""
+    id: lineId
   });
 
   return (

@@ -52,7 +52,7 @@ export type BusSchedule = {
 };
 
 //
-export type LineId = number;
+export type LineId = string;
 
 type ById = Record<
   string,
