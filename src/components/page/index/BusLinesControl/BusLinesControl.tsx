@@ -57,6 +57,17 @@ const BusLinesControl: React.FC<Props> = ({ value, onChange }) => {
             </option>
           ))}
         </s.Select>
+        {value && !schedule && (
+          <>
+            {Array(6)
+              .fill(true)
+              .map((_v, i) => (
+                <div key={i} className={s.placeholder}>
+                  placeholder
+                </div>
+              ))}
+          </>
+        )}
         {schedule && (
           <>
             <p>Red vožnje:</p>

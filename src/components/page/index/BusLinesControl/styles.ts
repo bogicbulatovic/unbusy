@@ -1,4 +1,4 @@
-import { styled } from "../../../../styled";
+import { css, styled } from "../../../../styled";
 
 const Root = styled("div", {
   position: "absolute",
@@ -32,4 +32,6 @@ const Select = styled("select", {
   cursor: "pointer"
 });
 
-export { Root, Container, SelectLabel, Select };
+const placeholder = css({ visibility: "hidden" })();
+
+export { Root, Container, SelectLabel, Select, placeholder };
