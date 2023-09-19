@@ -13,7 +13,8 @@ const BusLines: React.FC<Props> = ({ lineId }) => {
       {busLine &&
         busLine.features.map(
           f =>
-            f.geometry.type === "LineString" && (
+            f.geometry.type === "LineString" &&
+            f.properties.type === "bus-line" && (
               <Polyline
                 key={f.properties.id}
                 positions={f.geometry.coordinates}
