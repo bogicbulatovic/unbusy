@@ -13,7 +13,7 @@ const spanAll = css({
   justifySelf: "center"
 })();
 
-const LineId = styled(ButtonBase, {
+const LineToggleButton = styled(ButtonBase, {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -33,4 +33,4 @@ const LineId = styled(ButtonBase, {
   }
 });
 
-export { Body, spanAll, LineId };
+export { Body, spanAll, LineToggleButton };

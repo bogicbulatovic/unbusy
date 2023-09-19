@@ -10,7 +10,7 @@ const BusStopPopup: React.FC<Props> = ({ lineIds }) => {
     <Popup>
       <s.Body>
         {lineIds.map(lineId => (
-          <s.LineId
+          <s.LineToggleButton
             key={lineId}
             active={lineId === activeLineId}
             className={lineIds.length === 1 ? s.spanAll : undefined}
@@ -21,7 +21,7 @@ const BusStopPopup: React.FC<Props> = ({ lineIds }) => {
             }
           >
             {lineId}
-          </s.LineId>
+          </s.LineToggleButton>
         ))}
       </s.Body>
     </Popup>
