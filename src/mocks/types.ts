@@ -52,6 +52,7 @@ export type BusSchedule = {
 };
 
 //
+export type LineId = number;
 
 type ById = Record<
   string,
@@ -59,7 +60,7 @@ type ById = Record<
     coordinates: Position;
     name: string;
     id: number;
-    busLineIds: string[];
+    busLineIds: LineId[];
   }
 >;
 

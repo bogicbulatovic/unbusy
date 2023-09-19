@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { BusStopPopupProps as Props } from "./props";
 import * as s from "./styles";
 import { Popup } from "react-leaflet";
 
-const BusStopPopup: React.FC<Props> = ({ lineIds }) => {
-  const [activeLineId, setActiveLineId] = useState<string>();
-
+const BusStopPopup: React.FC<Props> = ({
+  lineIds,
+  activeLineId,
+  onChange
+}) => {
   return (
     <Popup>
       <s.Body>
@@ -14,11 +16,7 @@ const BusStopPopup: React.FC<Props> = ({ lineIds }) => {
             key={lineId}
             active={lineId === activeLineId}
             className={lineIds.length === 1 ? s.spanAll : undefined}
-            onClick={() =>
-              setActiveLineId(
-                lineId === activeLineId ? undefined : lineId
-              )
-            }
+            onClick={() => onChange(lineId)}
           >
             {lineId}
           </s.LineToggleButton>
