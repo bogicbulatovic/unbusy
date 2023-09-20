@@ -47,7 +47,7 @@ const BusLinesControl: React.FC<Props> = ({ value, onChange }) => {
         </s.SelectLabel>
         <s.Select
           id="bus_line_select"
-          value={value}
+          value={value || ""}
           onChange={e => onChange(e.target.value)}
         >
           <option value="">Izaberi</option>
