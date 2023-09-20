@@ -33,8 +33,8 @@ const busSchedule = rest.get<
   return res(
     ctx.json({
       direction_name: "Stari Aerodrom",
-      first_departure_time: "05:15:00",
-      last_departure_time: "21:55:00",
+      first_departure_time: "06:00",
+      last_departure_time: "22:00",
       day_type: "weekday",
       interval_in_minutes: 40
     })
