@@ -4,7 +4,9 @@ const removeSeconds = (time: string) => {
   let res = time;
 
   const splitted = res.split(":");
-  splitted.pop();
+  if (splitted.length > 2) {
+    splitted.pop();
+  }
 
   res = splitted.join(":");
 
