@@ -6,10 +6,12 @@ import { Popup } from "react-leaflet";
 const BusStopPopup: React.FC<Props> = ({
   lineIds,
   activeLineId,
+  name,
   onChange
 }) => {
   return (
     <Popup>
+      <s.Heading>{name}</s.Heading>
       <s.Body>
         {lineIds.map(lineId => (
           <s.LineToggleButton

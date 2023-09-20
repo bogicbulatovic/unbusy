@@ -20,6 +20,7 @@ const BusStops: React.FC<Props> = ({
         ) ? null : (
           <Marker key={id} position={busStops.byId[id].coordinates}>
             <BusStopPopup
+              name={busStops.byId[id].name}
               lineIds={busStops.byId[id].busLineIds}
               activeLineId={activeLineId}
               onChange={onLineIdChange}

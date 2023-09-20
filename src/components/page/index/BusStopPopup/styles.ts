@@ -5,7 +5,8 @@ import { ButtonBase } from "../../../shared/ButtonBase/ButtonBase";
 const Body = styled("div", {
   display: "grid",
   gap: 8,
-  gridTemplateColumns: "1fr 1fr 1fr"
+  justifyContent: "center",
+  gridTemplateColumns: "auto auto auto"
 });
 
 const spanAll = css({
@@ -34,4 +35,11 @@ const LineToggleButton = styled(ButtonBase, {
   }
 });
 
-export { Body, spanAll, LineToggleButton };
+const Heading = styled("h6", {
+  textAlign: "center",
+  fontSize: 14,
+  marginBottom: 8,
+  fontWeight: "bold"
+});
+
+export { Body, spanAll, LineToggleButton, Heading };
