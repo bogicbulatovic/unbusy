@@ -10,7 +10,7 @@ const Root = styled("div", {
   border: "2px solid rgba(0,0,0,0.2)",
   backgroundColor: "white",
   maxWidth: "60%",
-  maxHeight: "30%",
+  maxHeight: "20%",
   overflowY: "auto"
 });
 
@@ -34,4 +34,25 @@ const Select = styled("select", {
 
 const placeholder = css({ visibility: "hidden" })();
 
-export { Root, Container, SelectLabel, Select, placeholder };
+const ScheduleRoot = styled("div", {
+  display: "grid",
+  gap: 5
+});
+
+const ScheduleTimeGrid = styled("div", {
+  display: "grid",
+  gap: "5",
+  gridTemplateColumns: "auto auto auto",
+  justifyItems: "center",
+  justifyContent: "space-evenly"
+});
+
+export {
+  Root,
+  Container,
+  SelectLabel,
+  Select,
+  placeholder,
+  ScheduleRoot,
+  ScheduleTimeGrid
+};

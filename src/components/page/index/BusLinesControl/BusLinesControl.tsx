@@ -69,17 +69,17 @@ const BusLinesControl: React.FC<Props> = ({ value, onChange }) => {
           </>
         )}
         {schedule && (
-          <>
-            <p>Red vožnje:</p>
-            <div>
+          <s.ScheduleRoot>
+            <p style={{ textAlign: "center" }}>Red vožnje:</p>
+            <s.ScheduleTimeGrid>
               {mapTimeRange(
                 parseTime(schedule.first_departure_time),
                 parseTime(schedule.last_departure_time),
                 schedule.interval_in_minutes,
                 (t, i) => <p key={i}>{stringifyTime(t)}</p>
               ).reverse()}
-            </div>
-          </>
+            </s.ScheduleTimeGrid>
+          </s.ScheduleRoot>
         )}
       </s.Container>
     </s.Root>
