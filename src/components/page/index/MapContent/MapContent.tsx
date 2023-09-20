@@ -4,6 +4,7 @@ import { BusLines } from "../BusLines/BusLines";
 import { LineId } from "../../../../mocks/types";
 import { BusStopsProps } from "../BusStops/props";
 import { BusLinesControl } from "../BusLinesControl/BusLinesControl";
+import { LocationTracker } from "../LocationTracker/LocationTracker";
 
 const MapContent: React.FC = () => {
   const [activeLineId, setActiveLineId] = useState<LineId>();
@@ -27,6 +28,7 @@ const MapContent: React.FC = () => {
         value={activeLineId}
         onChange={handleLineIdChange}
       />
+      <LocationTracker />
     </>
   );
 };

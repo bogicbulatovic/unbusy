@@ -1,7 +1,7 @@
 import React from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import * as s from "./styles";
-import { PodgoricaLatLng, maxBounds, zoom } from "./helpers";
+import { PodgoricaLatLng, zoom } from "./helpers";
 import { MapContent } from "../MapContent/MapContent";
 
 const Map: React.FC = () => {
@@ -14,8 +14,6 @@ const Map: React.FC = () => {
       center={PodgoricaLatLng}
       zoom={zoom}
       className={s.root}
-      maxBounds={maxBounds}
-      maxBoundsViscosity={1}
       minZoom={10}
     >
       <TileLayer
