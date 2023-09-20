@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "install-mock-service-worker": "npx msw init ./public --save",
     "build": "next build",
     "start": "next start",
     "lint": "eslint --max-warnings=0",
