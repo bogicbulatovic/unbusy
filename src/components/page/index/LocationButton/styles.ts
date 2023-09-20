@@ -13,7 +13,8 @@ const Root = styled(ButtonBase, {
   borderRadius: "50%",
   border: "2px solid rgba(0, 0, 0, 0.2)",
   fontSize: 40,
-  padding: 10
+  padding: 10,
+  color: "Black"
 });
 
 export { Root };

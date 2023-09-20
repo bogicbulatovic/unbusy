@@ -8,9 +8,12 @@ const LocationTracker: React.FC = () => {
   const map = useMap();
 
   const [location, setLocation] = useState<LatLng>();
+  const [clickInProgress, setClickInProgres] = useState(false);
   const userInitiated = useRef(false);
 
   useMapEvent("locationerror", () => {
+    map.stopLocate();
+    setClickInProgres(false);
     const isMobile = !hasMouse();
     if (isMobile) {
       window.alert(
@@ -29,9 +32,11 @@ const LocationTracker: React.FC = () => {
       map.setView(e.latlng, 18);
       userInitiated.current = false;
     }
+    setClickInProgres(false);
   });
 
   const handleClick = () => {
+    setClickInProgres(true);
     userInitiated.current = true;
     map.locate({
       watch: true,
@@ -41,7 +46,11 @@ const LocationTracker: React.FC = () => {
 
   return (
     <>
-      <LocationButton onClick={handleClick} />
+      <LocationButton
+        disabled={clickInProgress}
+        onClick={handleClick}
+        loading={clickInProgress}
+      />
       {location && (
         <Circle
           key={location.toString()}
